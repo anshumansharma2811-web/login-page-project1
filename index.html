@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome Back 👋</h2>
+
+    <input type="text" id="username" placeholder="Username">
+
+    <div class="password-wrapper">
+        <input type="password" id="password" placeholder="Password">
+        <span onclick="togglePassword()">👁</span>
+    </div>
+
+    <button onclick="login()" id="loginBtn">
+        <span id="btnText">Login</span>
+        <div id="loader" class="loader"></div>
+    </button>
+
+    <p id="message"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
