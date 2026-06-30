@@ -13,6 +13,12 @@ collection = db["users"]
 def home():
     return send_from_directory('../', 'index.html')
 
+# ✅ MUST BE HERE
+@app.route('/dashboard')
+def dashboard():
+    return send_from_directory('../', 'dashboard.html')
+
+# ❗ MUST BE LAST
 @app.route('/<path:path>')
 def static_files(path):
     return send_from_directory('../', path)
@@ -20,6 +26,8 @@ def static_files(path):
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
+
+    print("📥 Data received:", data)  # debug
 
     user = collection.find_one({
         "username": data['username'],
@@ -32,5 +40,5 @@ def login():
         return jsonify({"success": False})
 
 if __name__ == "__main__":
-    print("✅ MongoDB Connected Successfully")
+    print("✅ Server running...")
     app.run(debug=True)

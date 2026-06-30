@@ -1,20 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 </head>
-<body style="background:black; color:white; text-align:center;">
 
-<h1>🎉 Welcome to Dashboard</h1>
-<p>You are logged in successfully.</p>
+<body>
 
-<button onclick="logout()">Logout</button>
+    <!-- Animated Background -->
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
-<script>
-function logout() {
-    window.location.href = "index.html";
-}
-</script>
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <h2>My Dashboard</h2>
+
+            </div>
+
+            <ul>
+
+                <li class="active">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>Analytics</span>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-users"></i>
+                    <span>Users</span>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <button class="logout" onclick="logout()">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Top Bar -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Welcome Back 👋</h1>
+
+                <p>Have a productive day.</p>
+
+            </div>
+
+            <div class="right-top">
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text" placeholder="Search...">
+
+                </div>
+
+                <div class="profile">
+
+                    <img src="https://i.pravatar.cc/100" alt="profile">
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- Statistics -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <div>
+
+                    <p>Total Users</p>
+
+                    <h2 id="users">0</h2>
+
+                </div>
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <p>Revenue</p>
+
+                    <h2 id="revenue">0</h2>
+
+                </div>
+
+                <i class="fa-solid fa-dollar-sign"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <p>Orders</p>
+
+                    <h2 id="orders">0</h2>
+
+                </div>
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <p>Visitors</p>
+
+                    <h2 id="visitors">0</h2>
+
+                </div>
+
+                <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+        </section>
+
+        <!-- Recent Activity -->
+
+        <section class="table-box">
+
+            <div class="table-title">
+
+                <h2>Recent Activity</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>User</th>
+                        <th>Activity</th>
+                        <th>Status</th>
+                        <th>Time</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>John</td>
+                        <td>Logged In</td>
+                        <td><span class="online">Success</span></td>
+                        <td>2 min ago</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Emma</td>
+                        <td>Purchased</td>
+                        <td><span class="online">Completed</span></td>
+                        <td>10 min ago</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Alex</td>
+                        <td>Updated Profile</td>
+                        <td><span class="pending">Pending</span></td>
+                        <td>35 min ago</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>William</td>
+                        <td>Logged Out</td>
+                        <td><span class="offline">Offline</span></td>
+                        <td>1 hour ago</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Sophia</td>
+                        <td>Payment</td>
+                        <td><span class="online">Success</span></td>
+                        <td>3 hours ago</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="dashboard.js"></script>
 
 </body>
+
 </html>

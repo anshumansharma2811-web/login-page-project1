@@ -1,45 +1,32 @@
-function togglePassword() {
-    const pass = document.getElementById("password");
-    pass.type = pass.type === "password" ? "text" : "password";
-}
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-function login() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    const loader = document.getElementById("loader");
-    const btnText = document.getElementById("btnText");
-    const message = document.getElementById("message");
+    console.log("Sending:", username, password); // debug
 
-    // Show loader
-    loader.style.display = "block";
-    btnText.style.display = "none";
+    try {
+        const res = await fetch("http://127.0.0.1:5000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
 
-    fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username: username,
-            password: password
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        loader.style.display = "none";
-        btnText.style.display = "inline";
+        const data = await res.json();
 
-        if (data.success) {
-            window.location.href = "dashboard.html";
-        } else {
-            message.innerText = "Invalid Credentials!";
-            message.style.color = "red";
-        }
-    })
-    .catch(err => {
-        loader.style.display = "none";
-        btnText.style.display = "inline";
-        message.innerText = "Server Error!";
-    });
+        console.log("Response:", data); // debug
+
+       if (data.success) {
+    window.location.href = "/dashboard";
+} else {
+    alert("Invalid Credentials");
 }
+
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Server error");
+    }
+});
