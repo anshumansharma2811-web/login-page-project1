@@ -11,7 +11,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 </head>
 
@@ -26,48 +26,45 @@
         <span></span>
     </div>
 
-    <!-- Sidebar -->
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
 
         <div>
 
             <div class="logo">
-
                 <i class="fa-solid fa-layer-group"></i>
-
                 <h2>My Dashboard</h2>
-
             </div>
 
             <ul>
 
-                <li class="active">
+                <li id="dashboardBtn" class="active">
                     <i class="fa-solid fa-house"></i>
                     <span>Dashboard</span>
                 </li>
 
-                <li>
+                <li id="profileBtn">
                     <i class="fa-solid fa-user"></i>
                     <span>Profile</span>
                 </li>
 
-                <li>
+                <li id="analyticsBtn">
                     <i class="fa-solid fa-chart-column"></i>
                     <span>Analytics</span>
                 </li>
 
-                <li>
+                <li id="productsBtn">
                     <i class="fa-solid fa-box"></i>
                     <span>Products</span>
                 </li>
 
-                <li>
+                <li id="usersBtn">
                     <i class="fa-solid fa-users"></i>
                     <span>Users</span>
                 </li>
 
-                <li>
+                <li id="settingsBtn">
                     <i class="fa-solid fa-gear"></i>
                     <span>Settings</span>
                 </li>
@@ -77,194 +74,387 @@
         </div>
 
         <button class="logout" onclick="logout()">
-
             <i class="fa-solid fa-right-from-bracket"></i>
-
             Logout
-
         </button>
 
     </aside>
 
-    <!-- Main -->
+    <!-- ================= MAIN ================= -->
 
     <main class="main">
 
-        <!-- Top Bar -->
+        <!-- ================= DASHBOARD ================= -->
 
-        <header class="topbar">
+        <section id="dashboardSection">
 
-            <div>
+            <!-- Topbar -->
 
-                <h1>Welcome Back 👋</h1>
+            <header class="topbar">
 
-                <p>Have a productive day.</p>
+                <div>
+                    <h1>Welcome Back 👋</h1>
+                    <p>Have a productive day.</p>
+                </div>
 
-            </div>
+                <div class="right-top">
 
-            <div class="right-top">
+                    <div class="search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
 
-                <div class="search">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
-                    <input type="text" placeholder="Search...">
+                    <div class="profile">
+                        <img src="https://i.pravatar.cc/100" alt="Profile">
+                    </div>
 
                 </div>
 
-                <div class="profile">
+            </header>
 
-                    <img src="https://i.pravatar.cc/100" alt="profile">
+            <!-- Statistics -->
+             <section class="cards">
 
+    <div class="card">
+
+        <div>
+            <p>Total Users</p>
+            <h2 id="users">0</h2>
+        </div>
+
+        <i class="fa-solid fa-users"></i>
+
+    </div>
+
+    <div class="card">
+
+        <div>
+            <p>Revenue</p>
+            <h2 id="revenue">0</h2>
+        </div>
+
+        <i class="fa-solid fa-dollar-sign"></i>
+
+    </div>
+
+    <div class="card">
+
+        <div>
+            <p>Orders</p>
+            <h2 id="orders">0</h2>
+        </div>
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+    </div>
+
+    <div class="card">
+
+        <div>
+            <p>Visitors</p>
+            <h2 id="visitors">0</h2>
+        </div>
+
+        <i class="fa-solid fa-eye"></i>
+
+    </div>
+
+</section>
+
+<!-- ================= RECENT ACTIVITY ================= -->
+
+<section class="table-box">
+
+    <div class="table-title">
+
+        <h2>Recent Activity</h2>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>User</th>
+                <th>Activity</th>
+                <th>Status</th>
+                <th>Time</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>John</td>
+                <td>Logged In</td>
+                <td><span class="online">Success</span></td>
+                <td>2 min ago</td>
+            </tr>
+
+            <tr>
+                <td>Emma</td>
+                <td>Purchased</td>
+                <td><span class="online">Completed</span></td>
+                <td>10 min ago</td>
+            </tr>
+
+            <tr>
+                <td>Alex</td>
+                <td>Updated Profile</td>
+                <td><span class="pending">Pending</span></td>
+                <td>35 min ago</td>
+            </tr>
+
+            <tr>
+                <td>William</td>
+                <td>Logged Out</td>
+                <td><span class="offline">Offline</span></td>
+                <td>1 hour ago</td>
+            </tr>
+
+            <tr>
+                <td>Sophia</td>
+                <td>Payment</td>
+                <td><span class="online">Success</span></td>
+                <td>3 hours ago</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
+
+</section>
+<!-- ================= PROFILE ================= -->
+
+<section id="profileSection" style="display:none;">
+
+    <div class="table-box">
+
+        <h1>👤 Profile</h1>
+
+        <br>
+
+        <h3>Username</h3>
+        <p>Admin</p>
+
+        <br>
+
+        <h3>Email</h3>
+        <p>admin@example.com</p>
+
+        <br>
+
+        <h3>Role</h3>
+        <p>Administrator</p>
+
+        <br>
+
+        <button class="logout">
+            Edit Profile
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ================= ANALYTICS ================= -->
+
+<section id="analyticsSection" style="display:none;">
+
+    <div class="table-box">
+
+        <h1>📊 Analytics</h1>
+
+        <br>
+
+        <div class="cards">
+
+            <div class="card">
+                <div>
+                    <p>Sales</p>
+                    <h2>$52K</h2>
                 </div>
 
+                <i class="fa-solid fa-chart-line"></i>
+
             </div>
-
-        </header>
-
-        <!-- Statistics -->
-
-        <section class="cards">
 
             <div class="card">
 
                 <div>
-
-                    <p>Total Users</p>
-
-                    <h2 id="users">0</h2>
-
+                    <p>Growth</p>
+                    <h2>28%</h2>
                 </div>
 
-                <i class="fa-solid fa-users"></i>
+                <i class="fa-solid fa-arrow-trend-up"></i>
 
             </div>
 
-            <div class="card">
+        </div>
 
-                <div>
+    </div>
 
-                    <p>Revenue</p>
+</section>
 
-                    <h2 id="revenue">0</h2>
+<!-- ================= PRODUCTS ================= -->
 
-                </div>
+<section id="productsSection" style="display:none;">
 
-                <i class="fa-solid fa-dollar-sign"></i>
+    <div class="table-box">
 
-            </div>
+        <h1>📦 Products</h1>
 
-            <div class="card">
+        <br>
 
-                <div>
+        <table>
 
-                    <p>Orders</p>
+            <thead>
 
-                    <h2 id="orders">0</h2>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                </tr>
 
-                </div>
+            </thead>
 
-                <i class="fa-solid fa-cart-shopping"></i>
+            <tbody>
 
-            </div>
+                <tr>
 
-            <div class="card">
+                    <td>Laptop</td>
+                    <td>$1200</td>
+                    <td>35</td>
 
-                <div>
+                </tr>
 
-                    <p>Visitors</p>
+                <tr>
 
-                    <h2 id="visitors">0</h2>
+                    <td>Keyboard</td>
+                    <td>$45</td>
+                    <td>80</td>
 
-                </div>
+                </tr>
 
-                <i class="fa-solid fa-eye"></i>
+                <tr>
 
-            </div>
+                    <td>Mouse</td>
+                    <td>$25</td>
+                    <td>120</td>
 
-        </section>
+                </tr>
 
-        <!-- Recent Activity -->
+            </tbody>
 
-        <section class="table-box">
+        </table>
 
-            <div class="table-title">
+    </div>
 
-                <h2>Recent Activity</h2>
+</section>
 
-            </div>
+<!-- ================= USERS ================= -->
 
-            <table>
+<section id="usersSection" style="display:none;">
 
-                <thead>
+    <div class="table-box">
 
-                    <tr>
+        <h1>👥 Users</h1>
 
-                        <th>User</th>
-                        <th>Activity</th>
-                        <th>Status</th>
-                        <th>Time</th>
+        <br>
 
-                    </tr>
+        <table>
 
-                </thead>
+            <thead>
 
-                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                </tr>
 
-                    <tr>
+            </thead>
 
-                        <td>John</td>
-                        <td>Logged In</td>
-                        <td><span class="online">Success</span></td>
-                        <td>2 min ago</td>
+            <tbody>
 
-                    </tr>
+                <tr>
 
-                    <tr>
+                    <td>John</td>
+                    <td>john@email.com</td>
+                    <td><span class="online">Active</span></td>
 
-                        <td>Emma</td>
-                        <td>Purchased</td>
-                        <td><span class="online">Completed</span></td>
-                        <td>10 min ago</td>
+                </tr>
 
-                    </tr>
+                <tr>
 
-                    <tr>
+                    <td>Emma</td>
+                    <td>emma@email.com</td>
+                    <td><span class="pending">Pending</span></td>
 
-                        <td>Alex</td>
-                        <td>Updated Profile</td>
-                        <td><span class="pending">Pending</span></td>
-                        <td>35 min ago</td>
+                </tr>
 
-                    </tr>
+                <tr>
 
-                    <tr>
+                    <td>Alex</td>
+                    <td>alex@email.com</td>
+                    <td><span class="offline">Offline</span></td>
 
-                        <td>William</td>
-                        <td>Logged Out</td>
-                        <td><span class="offline">Offline</span></td>
-                        <td>1 hour ago</td>
+                </tr>
 
-                    </tr>
+            </tbody>
 
-                    <tr>
+        </table>
 
-                        <td>Sophia</td>
-                        <td>Payment</td>
-                        <td><span class="online">Success</span></td>
-                        <td>3 hours ago</td>
+    </div>
 
-                    </tr>
+</section>
 
-                </tbody>
+<!-- ================= SETTINGS ================= -->
 
-            </table>
+<section id="settingsSection" style="display:none;">
 
-        </section>
+    <div class="table-box">
 
-    </main>
+        <h1>⚙️ Settings</h1>
 
-    <script src="dashboard.js"></script>
+        <br>
+
+        <label>
+
+            <input type="checkbox">
+
+            Enable Notifications
+
+        </label>
+
+        <br><br>
+
+        <label>
+
+            <input type="checkbox" checked>
+
+            Dark Mode
+
+        </label>
+
+        <br><br>
+
+        <button class="logout">
+
+            Save Settings
+
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+<script src="dashboard.js"></script>
 
 </body>
 
