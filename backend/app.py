@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, render_template
 from flask_cors import CORS
 from pymongo import MongoClient
 
@@ -11,12 +11,16 @@ collection = db["users"]
 
 @app.route('/')
 def home():
-    return send_from_directory('../', 'index.html')
+      return render_template('index.html')
 
 # ✅ MUST BE HERE
 @app.route('/dashboard')
 def dashboard():
-    return send_from_directory('../', 'dashboard.html')
+     return render_template('dashboard.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 # ❗ MUST BE LAST
 @app.route('/<path:path>')
