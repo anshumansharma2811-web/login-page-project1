@@ -1,8 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 
-app = Flask(__name__, static_folder="../")
+app = Flask(__name__, template_folder='../templates', static_folder='../static')
 CORS(app)
 
 client = MongoClient("mongodb+srv://admin:admin1234@cluster0.lz21b6v.mongodb.net/loginDB?retryWrites=true&w=majority")
@@ -12,6 +12,19 @@ collection = db["users"]
 @app.route('/')
 def home():
       return render_template('index.html')
+
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    username = data.get('username')
+    password = data.get('password')
+
+    if username == "admin" and password == "1234":
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
+    
 
 # ✅ MUST BE HERE
 @app.route('/dashboard')
